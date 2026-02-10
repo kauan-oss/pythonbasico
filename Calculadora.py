@@ -6,4 +6,4 @@ sub = num1 - num2
 div = num1 / num2
 mult = num1 * num2
 
-print("O resultado do número é soma =", soma, )
+print("O resultado das equações do número escolhido é soma =", soma, "subtração =", sub, "dividido, =", div, "multiplicado =", mult)
