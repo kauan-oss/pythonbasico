@@ -3,6 +3,18 @@ print('*************************')
 print('** Jogo da adivinhação **')
 print('*************************')
 
+dificuldade_escolhida = print ("1-Fácil, 2-Médio, 3-Díficil")
+escolha = input("Esolha a dificuldade 1, 2 e 3")
+
+escolha == 1
+print(f"Você vai jogar tranquilo")
+
+escolha == 2
+print(f"Gosta de um pouco de dificuldade")
+
+escolha == 3
+print(f"Gosta de um jogo complexo")
+
 numero_secreto = random.randrange( 1,101 )
 total_tentativas = 3
 
