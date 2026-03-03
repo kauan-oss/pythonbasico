@@ -17,7 +17,7 @@ def escolher_nivel():
         if not nivel_str.isdigit():
             print(VERMELHO+"Digite apenas número!"+ RESET)
             continue
-        nivel_str = int(nivel_str)
+        nivel = int(nivel_str)
         if nivel == 1:
             return 10
         elif nivel == 2:
@@ -38,10 +38,11 @@ def jogar():
     historico = []
 
     for rodada in range(1, total_tentativas + 1 ):
-        print("Tentativa {rodada} de {total_tentativas}".format(rodada,total_tentativas))
+        print(f"\nTentativa {rodada} de {total_tentativas}")
+        
         chute_str = input( "Digite um número entre 1 e 100:")
 
-        if not chute_str.isdigit
+        if not chute_str.isdigit:
             print(VERMELHO+"Dígite um número entre 1 e 100:"+RESET)
             continue 
 
@@ -52,6 +53,25 @@ def jogar():
             continue
         historico.append(chute)
 
-        acertou = chute == numero_secreto
-        maior = chute > numero_secreto
-        menor = chute < numero_secreto
+        if chute == numero_secreto:
+            print(VERDE+"\nVocê acertou!!"+RESET)
+            print(VERDE+f"\nSua pontuação foi: {pontos} pontos"+RESET)
+            break
+        else:
+            pontos -= 20
+            if chute > numero_secreto:
+                print(VERMELHO+"\nO número secreto é menor!!"+RESET)
+            else:
+                print(VERMELHO+"\nO número secreto é maior!!"+RESET)
+    else:
+        print(VERMELHO+f"\nVocê perdeu! o número secreto é {numero_secreto}"+RESET)
+    print(AZUL+"\nHistórico de tentativas: "+RESET,historico)
+    print(AZUL+"Fim de jogo "+RESET)
+
+while True:
+    jogar()
+    repetir = input("\nDeseja jogar novamente? (s/n)").lower()
+
+    if repetir != "s":
+        print(AZUL+"\nObrigado por jogar!"+RESET)
+        break
